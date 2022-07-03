@@ -18,10 +18,10 @@ fun main(args: Array<String>) {
     val winner: Player? = try {
         BlackjackGame(players, if (file == "") null else file).startGame()
     } catch (ex: FileNotFoundException) {
-        println("the provided file '$file' is either not found, empty or in the wrong format.\nExiting the program")
+        println(ex.message)
         exitProcess(1)
     } catch (ex: IllegalArgumentException) {
-        println("the provided file '$file' has the wrong format. \nExiting the program")
+        println(ex.message)
         exitProcess(1)
     }
 
